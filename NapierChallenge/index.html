@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div {
+                width: fit-content;
+            }
+            .canvasWrapper {
+                width: fit-content;
+            }
+            h1, h2 {
+                margin: 2px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                color: #FFFFFF;
+            }
+            .curvedBorder {
+                border-radius: 5px;
+            }
+            .darkGrey {
+                background-color: #455A64;
+            }
+            .grey {
+                background-color: #607D8B;
+            }
+            .green {
+                color: #CDDC39;
+            }
+
+            .red {
+                background-color: #e53935;
+            }
+            .blockInline {
+                display: inline-block;
+            }
+            .canvas {
+                width: 500px;
+                height: 500px;
+                margin-right: 3px;
+            }
+            .contentWrapper {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 3px;
+            }
+        </style>
+    </head>
+    <body class="darkGrey">
+        <header class="grey curvedBorder">
+            <h1>Node Visualisation</h1>
+        </header>
+        <div class="contentWrapper">
+            <div class="canvasWrapper grey curvedBorder blockInline canvas">
+                <canvas id="canvas" width="500" height="500">
+
+                </canvas>
+            </div>
+            <div class="grey curvedBorder blockInline canvas">
+                <h2>Click on the box to add nodes</h2>
+                <h2>Then click start to begin the animation</h2>
+                <br>
+                <h2>Note this example assumes all nodes are connected, and it does not take into account the distance between the nodes</h2>
+            </div>
+        </div>
+
+        <div onclick="startAnimation()" class="curvedBorder grey blockInline" id="startButton">
+            <h2>Start</h2>
+        </div>
+        <div class="curvedBorder red blockInline" id="resetButton" onclick="location.reload(true)">
+            <h2>Reset</h2>
+        </div>
+    </body>
+    <script>
+        function drawLine(canvas,x1,y1,x2,y2) {
+            canvas.beginPath();
+            canvas.moveTo(x1,y1);
+            canvas.lineTo(x2,y2);
+            canvas.stroke();
+        }
+
+        const r_weight = 20;
+
+        class Vertex {
+            constructor(x,y) {
+                this.x = x;
+                this.y = y;
+                this.r = r_weight;
+                this.owned = [];
+            }
+            isInCircle(x,y,r) {
+                if ((x - this.x)**2 + (y - this.y)**2 <= r**2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            draw(canvas) {
+                canvas.beginPath();
+                canvas.arc(this.x, this.y, 5, 0, 2*Math.PI, false);
+                canvas.fill();
+            }
+            line(canvas, x, y) {
+                drawLine(canvas, x,y, this.x, this.y)
+                this.owned.forEach(
+                    function(value, index, array) {
+                        // drawLine(canvas, x, y, usedNodes[value].x, usedNodes[value].y);
+                        usedNodes[value].line(canvas,this.x,this.y);
+                    },
+                    this
+                )
+            }
+        }
+        var wrapper = document.getElementById("canvas")
+        wrapper.addEventListener("click", addNode)
+        var canvas = wrapper.getContext("2d");
+        var data = canvas.getImageData(0,0,500,500);
+        var unusedNodes = [];
+        var usedNodes = [new Vertex(250,250)];
+
+        canvas.fillStyle = "#FFFFFF";
+        for (const node of unusedNodes) {
+            node.draw(canvas);
+        }
+        canvas.fillStyle = "#CDDC39"
+        for (const node of usedNodes) {
+            node.draw(canvas);
+        }
+
+        var mouse = [0,0];
+
+        function addNode(event) {
+            if (!running) {
+                rect = event.target.getBoundingClientRect();
+                pos = [-(rect.left - event.clientX), -(rect.top - event.clientY)];
+
+                unusedNodes.push(
+                    new Vertex(pos[0], pos[1])
+                );
+                canvas.fillStyle = "#FFFFFF";
+                unusedNodes[unusedNodes.length - 1].draw(canvas);
+            }
+        }
+        
+
+        const gain = 1;
+
+        var id = setInterval(tickAnimation, 20);
+        var running = false;
+        function startAnimation() {
+            running = true;
+        }
+        function tickAnimation() {
+            if (running) {
+                var t = 0;
+
+                usedNodes.forEach(
+                    function(node, index, array) {
+                        node.r += gain;
+
+                        canvas.strokeStyle = "#AAAA00"
+                        canvas.beginPath();
+                        canvas.arc(node.x,node.y,node.r,0,2*Math.PI,false);
+                        canvas.stroke();
+                        node.draw(canvas);
+
+                        canvas.strokeStyle = "#000000"
+                        usedNodes[0].owned.forEach(
+                        function(value) {
+                            usedNodes[value].line(canvas,usedNodes[0].x,usedNodes[0].y)
+                        }
+                    )
+                    
+                        var y = 0;
+                        while (y < unusedNodes.length) {
+                            if (unusedNodes[y].isInCircle(node.x,node.y,node.r)) {
+                                console.log(unusedNodes[y].x, unusedNodes[y].y)
+                                canvas.strokeStyle = "#000000"
+                                drawLine(canvas, node.x, node.y, unusedNodes[y].x, unusedNodes[y].y)
+                                usedNodes.push(unusedNodes.splice(y,1)[0]);
+                                node.owned.push(usedNodes.length-1);
+                                console.log(usedNodes[usedNodes.length-1])
+                            } else {
+                                y++;
+                            }
+                        }
+                        t++;
+                    }
+                )
+                console.log(usedNodes.length);
+                
+
+                canvas.fillStyle = "#FFFFFF";
+                for (const node of unusedNodes) {
+                    node.draw(canvas);
+                }
+                canvas.fillStyle = "#CDDC39"
+                for (const node of usedNodes) {
+                    node.draw(canvas);
+                }
+                if (unusedNodes.length == 0) {
+                    console.log("Animation Fishished");
+                    usedNodes[0].owned.forEach(
+                        function(value) {
+                            usedNodes[value].line(canvas,usedNodes[0].x,usedNodes[0].y)
+                        }
+                    )
+                    clearInterval(id);
+                }
+            }
+        }
+
+    </script>
+</html>
