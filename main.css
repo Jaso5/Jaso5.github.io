@@ -1,0 +1,55 @@
+main {
+    padding: 10px;
+    background-color: blanchedalmond;
+}
+.content {
+    border-bottom: 2px dotted brown;
+}
+
+.content:last-child {
+    padding-bottom: 2%;
+}
+
+
+
+
+/* Copy/paste stuff */
+/* HEADER */
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+    height: 10%;
+    border-bottom: 4px solid brown;
+    margin-bottom: 0%;
+}
+header h1 {
+    size: 6.5%;
+    color: brown
+}
+/* NAV */
+nav {
+    margin-top: 0%;
+    border-bottom: 2px solid brown;
+}
+nav a {
+    border-right: 2px solid brown;
+
+    padding: 0% 1%;
+
+    text-decoration: none;
+    color: black;
+}
+nav a:hover {
+    background-color: blanchedalmond;
+}
+/* FOOTER */
+footer {
+    height: 20%;
+    flex: content;
+    border-top: 4px solid brown;
+}
+footer a {
+    background-color: blanchedalmond;
+}
