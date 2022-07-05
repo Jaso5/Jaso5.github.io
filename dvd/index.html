@@ -1,14 +1,38 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>
             I like trains
         </title>
+        <style>
+            .background {
+                background-image: url("head.jpeg");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                height: 700px;
+                width: 700px;
+            }
+            .inner {
+                width: 60%;
+                height: 60%;
+                margin: 20%;
+                padding-top: 10%;
+            }
+            marquee marquee img {
+                height:40px;
+                width:40px;
+            }
+        </style>
     </head>
     <body>
-        <marquee behavior="alternate" direction="down" height="100%" scrollamount="12">
-            <marquee behavior="alternate" scrollamount="12">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/DVD_logo.svg" style="height:50px;width:50px;">
-            </marquee>
-        </marquee>
+        <div class="background">
+            <div class="inner">
+                <marquee behavior="alternate" direction="down" height="100%" scrollamount="12">
+                    <marquee behavior="alternate" scrollamount="12">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/DVD_logo.svg">
+                    </marquee>
+                </marquee>
+            </div>
+        </div>
     </body>
 </html>
