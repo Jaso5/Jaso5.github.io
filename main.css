@@ -1,16 +1,55 @@
 main {
+    display: grid;
+    grid-template-areas: 
+        "a a b"
+        "a a p"
+    ;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 3em auto;
     padding: 10px;
     background-color: blanchedalmond;
+
 }
-.content {
-    border-bottom: 2px dotted brown;
+main > *{
+    padding: 1%;
 }
 
-.content:last-child {
+main > section:last-child {
     padding-bottom: 2%;
 }
 
+.main {
+    grid-area: a;
+    min-height: 400px;
+}
 
+.picture {
+    grid-area: p;
+    padding: 0px;
+}
+
+.alt {
+    grid-area: b;
+    white-space: pre-line;
+    text-align: center;
+}
+
+.d-top {
+    border-top: 2px dotted brown;
+}
+.d-btm {
+    border-bottom: 2px dotted brown;
+}
+.d-lft {
+    border-left: 2px dotted brown;
+}
+.d-rht {
+    border-right: 2px dotted brown;
+}
+
+marquee {
+    padding: 0px;
+}
 
 
 /* Copy/paste stuff */
@@ -22,6 +61,8 @@ header {
     height: 10%;
     border-bottom: 4px solid brown;
     margin-bottom: 0%;
+    display: flex;
+    flex-flow: row wrap;
 }
 header h1 {
     size: 6.5%;
@@ -32,6 +73,8 @@ header h1 {
 nav {
     margin-top: 0%;
     border-bottom: 2px solid brown;
+    display: flex;
+    flex-direction: row;
 }
 nav a {
     border-right: 2px solid brown;
@@ -40,6 +83,7 @@ nav a {
 
     text-decoration: none;
     color: black;
+    display: inline-block;
 }
 nav a:last-child {
     border-right: none;
@@ -53,14 +97,18 @@ footer {
     border-top: 4px solid brown;
 
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
 }
 footer section {
-    padding: 1%;
-    margin-right: 4%;
+    padding: 2%;
+    /* margin: 2%; */
+    border-right: 2px solid brown;
+}
+footer section:last-child {
+    border: none;
 }
 footer section h1 {
-    font-size: medium;
+    font-size: 1em;
 }
 footer ul {
     list-style-type: '->';
@@ -72,3 +120,36 @@ footer a {
 footer a:hover {
     color: brown;
 }
+/* 
+#dvd-vert {
+    animation: 2s linear 0s infinite alternate;
+    animation-name: horizontal;
+}
+
+#dvd-hori {
+    animation: 2s linear 0s infinite alternate;
+    animation-name: vertical;
+}
+
+@keyframes horizontal {
+    from {
+        margin-left: 85%;
+        /* width: 300%; */
+    }
+    
+    to {
+        margin-left: 0%;
+        /* width: 100%; */
+    }
+}
+@keyframes vertical {
+    from {
+        margin-top: 85%;
+        /* width: 300%; */
+    }
+    
+    to {
+        margin-top: 0%;
+        /* width: 100%; */
+    }
+} */
