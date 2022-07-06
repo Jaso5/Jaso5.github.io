@@ -14,11 +14,10 @@ main {
 
 
 /* Copy/paste stuff */
-/* HEADER */
 * {
     font-family: 'Courier New', Courier, monospace;
 }
-
+/* HEADER */
 header {
     height: 10%;
     border-bottom: 4px solid brown;
@@ -26,7 +25,8 @@ header {
 }
 header h1 {
     size: 6.5%;
-    color: brown
+    color: brown;
+    margin-left: 1%;
 }
 /* NAV */
 nav {
@@ -41,15 +41,34 @@ nav a {
     text-decoration: none;
     color: black;
 }
+nav a:last-child {
+    border-right: none;
+}
 nav a:hover {
     background-color: blanchedalmond;
 }
 /* FOOTER */
 footer {
     height: 20%;
-    flex: content;
     border-top: 4px solid brown;
+
+    display: flex;
+    flex-direction: row;
+}
+footer section {
+    padding: 1%;
+    margin-right: 4%;
+}
+footer section h1 {
+    font-size: medium;
+}
+footer ul {
+    list-style-type: '->';
 }
 footer a {
-    background-color: blanchedalmond;
+    text-decoration: none;
+    color: black;
+}
+footer a:hover {
+    color: brown;
 }
