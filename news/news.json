@@ -1,0 +1,16 @@
+{
+    "content": [
+        {
+            "title": "Bears are in",
+            "preview": "We love bears, do you?",
+            "image": "https://placebear.com/400/400",
+            "link": "/"
+        },
+        {
+            "title": "Kittens are also in",
+            "preview": "We love kittens, doesn't everyone?",
+            "image": "https://placekitten.com/400/400",
+            "link": "/"
+        }
+    ]
+}

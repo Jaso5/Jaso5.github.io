@@ -1,0 +1,57 @@
+/* Top Bar */
+main > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'title more';
+}
+main > div > h1 {
+    font-size: 1.6em;
+    grid-area: title;
+    margin: 0px;
+}
+main > div > a {
+    color: grey;
+    text-decoration: none;
+    text-align: right;
+    margin-top: auto;
+    grid-area: more;
+}
+main > div {
+    padding-bottom: 20px;
+}
+
+main > section {
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: auto 3fr;
+    grid-template-rows: 3fr 1fr;
+    grid-template-areas: 
+        'img text'
+        'img link'
+    ;
+}
+
+main > section > img {
+    width: 135px;
+    height: 100px;
+
+    padding-right: 20px;
+
+    grid-area: img;
+}
+
+main > section > p {
+    grid-area: text;
+    font-weight: bold;
+}
+
+main > section > a {
+    grid-area: link;
+    text-align: right;
+    color: red;
+}
+
+main {
+    width: 60%;
+    margin: auto;
+}
