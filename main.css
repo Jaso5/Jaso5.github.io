@@ -120,36 +120,15 @@ footer a {
 footer a:hover {
     color: brown;
 }
-/* 
-#dvd-vert {
-    animation: 2s linear 0s infinite alternate;
-    animation-name: horizontal;
+
+button {
+    background-color: white;
+    border: solid black 1px;
+    border-radius: 2.5px;
+    color: black;
+    margin: 2%
 }
 
-#dvd-hori {
-    animation: 2s linear 0s infinite alternate;
-    animation-name: vertical;
+button:hover {
+    background-color: blanchedalmond;
 }
-
-@keyframes horizontal {
-    from {
-        margin-left: 85%;
-        /* width: 300%; */
-    }
-    
-    to {
-        margin-left: 0%;
-        /* width: 100%; */
-    }
-}
-@keyframes vertical {
-    from {
-        margin-top: 85%;
-        /* width: 300%; */
-    }
-    
-    to {
-        margin-top: 0%;
-        /* width: 100%; */
-    }
-} */
