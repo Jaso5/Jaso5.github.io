@@ -4,19 +4,17 @@ var insert = document.getElementsByName("main")//document.getElementById("news-g
 function import_news(location) {
     news = JSON.parse(get_json(location));
 
-    for (i = 0; i < news.content.length; i++) {
-        console.log(news.content[i].title)
-
+    for (let entry of news.content) {
         var item = document.createElement("section");
 
         var img = document.createElement("img");
         var text = document.createElement("p");
         var link = document.createElement("a");
 
-        img.src = news.content[i].image;
-        text.innerText = news.content[i].preview;
+        img.src = entry.image;
+        text.innerText = entry.preview;
 
-        link.href = news.content[i].link;
+        link.href = entry.link;
         link.innerText = "Read More"
                 
         item.appendChild( img )
