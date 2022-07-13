@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reversi</title>
+
+        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="reversi.css">
+
+        <script src="reversi_canvas.js"></script>
+    </head>
+    <body onload="populate_board()">
+        <header>
+            <h1>Reversi</h1>
+        </header>
+        <nav>
+            <a href="../index.html">Home</a>
+        </nav>
+        <main>
+            <canvas id="board" width="800" height="800" onclick="handleClick(event)"></canvas>
+            <section>
+                <div id="legend" class="player_info">
+                    <h1>color</h1>
+                    <h2>area</h2>
+                </div>
+                <div id="red" class="player_info">
+                    <h1>Red</h1>
+                    <h2 id="red_area">2</h2>
+
+                    <div></div>
+                </div>
+                <div id="white" class="player_info">
+                    <h1>White</h1>
+                    <h2 id="white_area">2</h2>
+
+                    <div></div>
+                </div>
+                <div class="how_to_play">Here's How to play</div>
+                <div id="buttons">
+                    <button onclick="reset()">Reset</button>
+                    <button onclick="skip()">Skip Turn</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <section>
+                <h1>Contact Us!</h1>
+                <ul>
+                    <li>Phone: <a href="tel:69696969">969696969696</a></li>
+                    <li>Email: <a href="mailto:john.smith@apples.com">john.smith@apples.com</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>&copy; Nobody in particular</h1>
+            </section>
+        </footer>
+    </body>
+</html>

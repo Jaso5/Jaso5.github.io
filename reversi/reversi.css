@@ -1,0 +1,84 @@
+#board {    
+    width: 400px;
+    height: 400px;
+    grid-area: a;
+    padding: 0px;
+}
+
+main {
+    padding: 0px;
+    grid-template-areas: 
+    "a b b"
+    "a b b"
+    ;
+    grid-template-rows: auto auto;
+}
+
+main > section {
+    grid-area: b;
+    display: grid;
+    grid-template-columns: 70px 70px 70px auto;
+    grid-template-areas: 
+        "l r w h"
+        "b b b h"
+    ;
+}
+
+.player_info {
+    height: 100%;
+    padding: 4%;
+}
+.player_info > h1 {
+    font-size: 1em;
+}
+.player_info > h2 {
+    font-size: 0.75em;
+}
+.player_info > div {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    /* margin: auto; */
+}
+
+#legend {
+    grid-area: l;
+    color: black;
+    border-left: dotted brown 2px;
+    font-weight: normal;
+    text-align: center;
+}
+#legend > * {
+    font-weight: normal;
+    text-align: center;
+}
+#red {
+    grid-area: r;
+    /* border-right: dotted brown 2px; */
+    color: brown;
+    text-align: right;
+    background-color: blanchedalmond;
+}
+#red > div {
+    background-color: brown;
+    margin-left: auto;
+}
+#white {
+    grid-area: w;
+    color: black
+}
+#white > div {
+    border: brown solid 0.5px;
+}
+
+.how_to_play {
+    grid-area: h;
+    border-left: dotted brown 2px;
+    padding-left: 2%;
+}
+
+#buttons {
+    grid-area: b;
+    border-left: dotted brown 2px;
+    border-top: dotted brown 2px;
+}
