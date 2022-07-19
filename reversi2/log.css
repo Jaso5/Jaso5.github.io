@@ -1,0 +1,8 @@
+body > p {
+    margin: 0px;
+    border-bottom: 1px solid brown;
+}
+
+body > p:nth-child(odd) {
+    background-color: blanchedalmond;
+}
