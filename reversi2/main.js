@@ -5,6 +5,7 @@ const event_queue = [];
 socket.addEventListener("open", event => {
     socket_state = 1;
     addLog("Socket Opened")
+    setInterval(ping, 30000);
 })
 
 socket.addEventListener("close", event => {
@@ -18,8 +19,14 @@ socket.addEventListener("error", event => {
 })
 
 socket.addEventListener("message", event => {
-    event_queue.push(event.data)
-    addLog(event.data)
+    if (event.data == '__pong__') {
+        pong();
+        addLog("Ping pong'd correctly")
+        return;
+    } else {
+        event_queue.push(event.data)
+        addLog(event.data)
+    }
 })
 
 function addLog(content) {
@@ -29,3 +36,20 @@ function addLog(content) {
 }
 
 
+function ping() {
+    socket.send('__ping__');
+    tm = setTimeout(function () {
+        addLog("Ping-Pong failed, we have timed out")
+        socket_state = -1;
+        window.removeEventListener("unload")
+    }, 5000);
+}
+
+function pong() {
+    clearTimeout(tm);
+}
+
+window.addEventListener("unload", function () {
+    if(socket.readyState == WebSocket.OPEN)
+        socket.close();
+});
