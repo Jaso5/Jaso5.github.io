@@ -5,7 +5,6 @@ const event_queue = [];
 socket.addEventListener("open", event => {
     socket_state = 1;
     addLog("Socket Opened")
-    setInterval(ping, 30000);
 })
 
 socket.addEventListener("close", event => {

@@ -1,0 +1,30 @@
+.cookie-container {
+    width: 40%;
+}
+
+.cookie-container > div {
+    margin: auto;
+    animation: cookie-wobble infinite 3s alternate ease-in-out;
+}
+
+.cookie-container > div > img {
+    animation: cookie-spin infinite 20s forwards linear;
+}
+
+@keyframes cookie-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cookie-wobble {
+    from {
+        transform: scale(100%);
+    }
+    to {
+        transform: scale(90%);
+    }
+}
