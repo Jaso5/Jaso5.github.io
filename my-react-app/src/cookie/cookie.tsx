@@ -1,5 +1,5 @@
 import React from "react";
-import { globals } from "../App";
+import { add_money } from "../counter/counter";
 // Assets
 import "./cookie.css";
 import COOKIE from "./cookie.png";
@@ -13,13 +13,13 @@ export class Cookie extends React.Component {
   
     render() {
       return (
-        <div className="cookie-container">
+        <div className="cookie-container content">
             <div><img src={COOKIE} alt="A cookie" onClick={this.handleClick}></img></div>
         </div>
       )
     }
 
     handleClick() {
-      globals.money += 1;
+      add_money(1);
     }
   }

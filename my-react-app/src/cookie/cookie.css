@@ -1,14 +1,19 @@
 .cookie-container {
-    width: 40%;
+    grid-area: cookie;
+    height: fit-content;
 }
 
 .cookie-container > div {
-    margin: auto;
     animation: cookie-wobble infinite 3s alternate ease-in-out;
+
+    
 }
 
 .cookie-container > div > img {
     animation: cookie-spin infinite 20s forwards linear;
+    width: 80%;
+    height: 80%;
+    margin: auto;
 }
 
 @keyframes cookie-spin {

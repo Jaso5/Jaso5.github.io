@@ -1,1 +1,30 @@
+* {
+    margin: 0px;
+}
 
+body {
+    background-color: #8F9491;    
+}
+
+#root {
+    padding: 1%;
+}
+
+.content {
+    background-color: #E5CEDC;
+    /* border-radius: 25px; */
+    border-bottom: #BCA3AC solid 4px;
+    border-right: #BCA3AC solid 4px;
+    padding: 4%
+}
+
+#main-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "counter counter"
+        "cookie buy"
+        "footer footer"
+    ;
+}

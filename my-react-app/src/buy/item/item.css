@@ -1,0 +1,20 @@
+.item {
+    display: grid;
+    grid-template-areas: 
+        "icon name count"    
+        "icon price count";
+    grid-template-rows: 1fr 2fr 1fr;
+
+}
+
+.item > img {
+    grid-area: icon;
+}
+
+.item > h1 {
+    grid-area: name;
+}
+
+.item > h2 {
+    grid-area: count;
+}
