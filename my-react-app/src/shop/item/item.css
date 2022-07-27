@@ -3,12 +3,14 @@
     grid-template-areas: 
         "icon name count"    
         "icon price count";
-    grid-template-rows: 1fr 2fr 1fr;
-
+    grid-template-columns: 1fr 2fr 1fr;
+    outline: 1px solid black;
 }
 
 .item > img {
     grid-area: icon;
+    width: 100px;
+    height: 100px;
 }
 
 .item > h1 {

@@ -2,7 +2,7 @@ import React from "react";
 import { add_money } from "../counter/counter";
 // Assets
 import "./cookie.css";
-import COOKIE from "./cookie.png";
+import COOKIE from "./../assets/cookie.png";
 
 export class Cookie extends React.Component {
     constructor(props: {}) {

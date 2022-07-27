@@ -1,4 +1,5 @@
 import React from "react";
+import { MoneyHeader } from "../label/price";
 
 // Assets
 import "./counter.css"
@@ -45,7 +46,7 @@ export class Counter extends React.Component<{}, {money: number}> {
     render() {
         return (
             <div className="content counter">
-                <h1>Money: £{this.state.money.toString()}</h1>
+                <MoneyHeader price={this.state.money}></MoneyHeader>
             </div>
         )
     }

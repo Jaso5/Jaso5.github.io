@@ -1,0 +1,31 @@
+{ "upgrades":[
+        {
+            "name": "The first of many",
+            "description": ["The first upgrade", "Clicks are worth 2"],
+            "cost": 100,
+            "requires": {
+                "owned": {},
+                "stats": {
+                    "clicks": 100
+                }
+            },
+            "depends": []
+        },
+        {
+            "name": "Give the rats some cookies",
+            "description": ["Now they're no longer hungry,", "all rats produce 2 c/s"],
+            "cost": 200,
+            "requires": {
+                "owned": {
+                    "rats": 20
+                },
+                "stats": {
+                    
+                }
+            },
+            "depends": [
+                "The first of many"
+            ]
+        }
+    ]
+}

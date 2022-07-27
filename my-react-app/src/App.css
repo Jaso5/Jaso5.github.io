@@ -2,29 +2,32 @@
     margin: 0px;
 }
 
-body {
-    background-color: #8F9491;    
+html, body {
+    /* background-color: #8F9491; */
+    height: 100%;
 }
 
 #root {
-    padding: 1%;
+    height: 100%;
 }
 
 .content {
     background-color: #E5CEDC;
-    /* border-radius: 25px; */
-    border-bottom: #BCA3AC solid 4px;
-    border-right: #BCA3AC solid 4px;
-    padding: 4%
+    outline: 1px solid black;
+}
+
+.right {
+    grid-area: right;
 }
 
 #main-grid {
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto;
+    grid-template-rows: fit-content(10%) 80% 10%;
     grid-template-areas: 
-        "counter counter"
-        "cookie buy"
+        "counter tabs"
+        "cookie right"
         "footer footer"
     ;
 }

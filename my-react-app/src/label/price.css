@@ -1,3 +1,13 @@
 .price {
     grid-area: price;
+    font-size: 1em;
+    display: inline-block;
+}
+
+.price > h1 {
+    display: inline;
+}
+
+.price-header {
+    display: inline-block;
 }

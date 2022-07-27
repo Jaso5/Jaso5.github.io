@@ -1,12 +1,10 @@
 .cookie-container {
     grid-area: cookie;
-    height: fit-content;
+    height: 100%;
 }
 
 .cookie-container > div {
     animation: cookie-wobble infinite 3s alternate ease-in-out;
-
-    
 }
 
 .cookie-container > div > img {
