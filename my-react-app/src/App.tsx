@@ -8,18 +8,30 @@ import "./App.css"
 import { Shop, toggle_shop } from './shop/shop';
 import { TabItem, Tabs } from './tabs/tabs';
 import { toggle_upgrades, Upgrades } from './upgrades/upgrades';
+import { StatTracker } from './stats';
 
 export default class App extends React.Component {
   items = [
     new TabItem(
       "Shop",
-        () => {toggle_shop()},
+        (state: boolean) => {toggle_shop(state)},
     ),
     new TabItem(
       "Upgrades",
-        () => {toggle_upgrades()},
+        (state: boolean) => {toggle_upgrades(state)},
     )
   ]
+
+  // timer: NodeJS.Timer | undefined
+
+  // componentDidMount() {
+  //   this.timer = setInterval(
+  //     () => {
+  //       save_shop()
+  //     },
+  //     20 * 1000
+  //   )
+  // }
 
   render() {
     return (
@@ -29,6 +41,7 @@ export default class App extends React.Component {
           <Shop/>
           <Upgrades/>
           <Tabs items={this.items}/>
+          <StatTracker></StatTracker>
         </div>
     ) 
   }

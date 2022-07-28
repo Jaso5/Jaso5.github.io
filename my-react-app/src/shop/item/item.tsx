@@ -1,6 +1,6 @@
 import React from "react";
 import { add_money, remove_money } from "../../counter/counter";
-import { MoneyLabel } from "../../label/price";
+import { MoneyLabel, MoneySecond } from "../../label/price";
 import { update_shop } from "../shop";
 
 // Assets
@@ -20,7 +20,7 @@ export class Item {
     count: number
 
 
-    constructor(name: string, icon_src: string, key: string, initial_price: number, production: number) {
+    constructor(name: string, icon_src: string, key: string, initial_price: number, production: number, count: number) {
         this.name = name;
         this.key = key;
         this.icon_src = icon_src;
@@ -61,9 +61,15 @@ export class Item {
             <div className="item" onClick={this.handleClick} key={this.key}>
                 <img src={this.icon_src} alt="Icon for item"></img>
                 <h1>{this.name}</h1>
-                <h2>{this.count}</h2>
-                <MoneyLabel price={this.price}></MoneyLabel>
+                <MoneySecond count={this.count} produce={this.production} icon={this.icon_src}/>
+                <MoneyLabel price={this.price}/>
             </div>
         )
     }
 }
+
+// export function deserialize_item(json: string): Item {
+//     let obj = JSON.parse(json);
+    
+//     return new Item(obj.name, obj.icon_src, obj.key, obj.initial_price, obj.number, obj.count)
+// }

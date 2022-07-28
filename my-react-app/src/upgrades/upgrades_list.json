@@ -4,28 +4,218 @@
             "description": ["The first upgrade", "Clicks are worth 2"],
             "cost": 100,
             "requires": {
-                "owned": {},
-                "stats": {
-                    "clicks": 100
-                }
+                "owned": [],
+                "stats": [{
+                    "type": "clicks",
+                    "count": 100
+                }]
             },
-            "depends": []
+            "depends": [],
+            "effect": {
+                "player": [{
+                    "type": "clicks",
+                    "add": 0,
+                    "multiply": 2
+                }],
+                "shop": []
+            }
         },
         {
-            "name": "Give the rats some cookies",
+            "name": "Give the rats some leftovers",
             "description": ["Now they're no longer hungry,", "all rats produce 2 c/s"],
             "cost": 200,
             "requires": {
-                "owned": {
-                    "rats": 20
-                },
-                "stats": {
-                    
-                }
+                "owned": [{
+                    "type": "rat",
+                    "count": 20
+                }],
+                "stats": [
+
+                ]
             },
             "depends": [
                 "The first of many"
-            ]
+            ],
+            "effect": {
+                "player": [],
+                "shop": [
+                    {
+                        "type": "rat",
+                        "add": 0,
+                        "multiply": 2
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Gardening Gloves",
+            "description": [
+                "Allows you to rummage in trash faster and safer",
+                "Click value doubled!"
+            ],
+            "cost": 500,
+            "requires": {
+                "owned": [],
+                "stats": [{
+                    "type": "clicks",
+                    "count": 500
+                }]
+            },
+            "depends": ["The first of many"],
+            "effect": {
+                "player": [{
+                    "type": "clicks",
+                    "add": 0,
+                    "multiply": 2
+                }],
+                "shop": []
+            }
+        },
+        {
+            "name": "Government Subsidised Bins",
+            "description": [
+                "Homes are more affordable for Racoons, leading to more trash",
+                "Raccoon trash production x2"
+            ],
+            "cost": 750,
+            "requires": {
+                "owned": [{
+                    "type": "raccoon",
+                    "count": 20
+                }],
+                "stats": []
+            },
+            "depends": ["The first of many"],
+            "effect": {
+                "player": [],
+                "shop": [{
+                    "type": "raccoon",
+                    "add": 0,
+                    "multiply": 2
+                }]
+            }
+        },
+        {
+            "name": "Opossum Daycares",
+            "description": [
+                "No longer carring their kids all day long, the opossum's are free to work without burden",
+                "Opossum work doubled!"
+            ],
+            "cost": 1500,
+            "requires": {
+                "owned": [{
+                    "type": "opossum",
+                    "count": 20
+            }],
+                "stats": []
+            },
+            "depends": ["The first of many", "Government Subsidised Bins"],
+            "effect": {
+                "player": [],
+                "shop": [{
+                    "type": "opossum",
+                    "add": 0,
+                    "multiply": 2
+                }]
+            }
+        },
+        {
+            "name": "Eldritch Mental Health Program",
+            "description": [
+                "Mr Horror finds work hard, but being able to talk it out helps",
+                "His production rises 1.5x as a result"
+            ],
+            "cost": 3000,
+            "requires": {
+                "owned": [{
+                    "type": "horror",
+                    "count": 1
+                }],
+                "stats": []
+            },
+            "depends": [],
+            "effect": {
+                "player": [],
+                "shop": [{
+                    "type": "horror",
+                    "add": 0,
+                    "multiply": 1.5
+                }]
+            }
+        },
+        {
+            "name": "Breakcore in the break rooms",
+            "description": [
+                "Everyone love breakcore!",
+                "+2 tps for everyone!"
+            ],
+            "cost": 4000,
+            "requires": {
+                "owned": [                    {
+                    "type": "rat",
+                    "count": 5
+                },
+                {
+                    "type": "raccoon",
+                    "count": 5
+                },
+                {
+                    "type": "opossum",
+                    "count": 5
+                },
+                {
+                    "type": "horror",
+                    "count": 5
+                }],
+                "stats": []
+            },
+            "depends": ["The first of many"],
+            "effect": {
+                "player": [],
+                "shop": [
+                    {
+                        "type": "rat",
+                        "add": 2,
+                        "multiply": 1
+                    },
+                    {
+                        "type": "raccoon",
+                        "add": 2,
+                        "multiply": 1
+                    },
+                    {
+                        "type": "opossum",
+                        "add": 2,
+                        "multiply": 1
+                    },
+                    {
+                        "type": "horror",
+                        "add": 2,
+                        "multiply": 1
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Motivational Moth Posters",
+            "description": [
+                "A bit clichéd, but the opossums seem to like it",
+                "Possums +5 tps"
+            ],
+            "cost": 500,
+            "requires": {
+                "owned": [],
+                "stats": []
+            },
+            "depends": ["The first of many", "Breakcore in the break rooms"],
+            "effect": {
+                "player": [],
+                "shop": [{
+                    "type": "opossum",
+                    "add": 5,
+                    "multiply": 1
+                }]
+            }
         }
     ]
 }

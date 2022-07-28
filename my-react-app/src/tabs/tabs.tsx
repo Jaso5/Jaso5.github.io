@@ -19,12 +19,8 @@ export class Tabs extends React.Component<{items: Array<TabItem>}, {active: numb
                         return (
                             <div
                                 className="tab-item"
-                                onClick={(event) => {
-                                    item.toggle_callback();
-                                    this.props.items[this.state.active].toggle_callback();
-                                    this.setState({
-                                        active: index
-                                    })
+                                onClick={() => {
+                                    this.toggle(index)
                                 }}
                                 key={index}
                             >
@@ -36,6 +32,12 @@ export class Tabs extends React.Component<{items: Array<TabItem>}, {active: numb
             </nav>
         )
     }
+
+    toggle(index: number) {
+        this.props.items.forEach((item, i) => {
+            item.toggle_callback(i === index)
+        })
+    }
 }
 
 export class TabItem {
@@ -45,6 +47,5 @@ export class TabItem {
     constructor(label: string, toggle_callback: Function) {
         this.label = label;
         this.toggle_callback = toggle_callback;
-
     }
 }

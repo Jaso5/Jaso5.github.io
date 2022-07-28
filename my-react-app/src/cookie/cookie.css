@@ -1,10 +1,13 @@
 .cookie-container {
     grid-area: cookie;
     height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .cookie-container > div {
     animation: cookie-wobble infinite 3s alternate ease-in-out;
+    align-self: center;
 }
 
 .cookie-container > div > img {
