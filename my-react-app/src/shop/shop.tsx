@@ -41,7 +41,7 @@ export class Shop extends React.Component<{}, {show: boolean, owned: Map<string,
             owned: new Map(),
             items: new Map([
                 ["rat", new Item("Trash Rat", RAT, "rat", 10, 1, 0)],
-                ["raccoon", new Item("Trash Thief", RACCOON, "raccoon", 100, 5, 0)],
+                ["raccoon", new Item("Trash Panda", RACCOON, "raccoon", 100, 5, 0)],
                 ["opossum", new Item("Trash Puppy", OPOSSUM, "opossum", 750, 10, 0)],
                 ["horror", new Item("Trash Eldritch Horror", HORROR, "horror", 1500, 20, 0)]
             ])

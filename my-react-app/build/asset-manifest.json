@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-react-app/build/static/css/main.3c7db85d.css",
-    "main.js": "/my-react-app/build/static/js/main.3cf1bebf.js",
+    "main.js": "/my-react-app/build/static/js/main.407b8fa4.js",
     "static/js/787.bc7d429a.chunk.js": "/my-react-app/build/static/js/787.bc7d429a.chunk.js",
     "static/media/raccoon.png": "/my-react-app/build/static/media/raccoon.8f04bbf6e4c995be8903.png",
     "static/media/opossum.png": "/my-react-app/build/static/media/opossum.68e9414f6d944d14c45c.png",
@@ -10,11 +10,11 @@
     "static/media/rat_2.png": "/my-react-app/build/static/media/rat_2.97209cf693fcd90aa053.png",
     "index.html": "/my-react-app/build/index.html",
     "main.3c7db85d.css.map": "/my-react-app/build/static/css/main.3c7db85d.css.map",
-    "main.3cf1bebf.js.map": "/my-react-app/build/static/js/main.3cf1bebf.js.map",
+    "main.407b8fa4.js.map": "/my-react-app/build/static/js/main.407b8fa4.js.map",
     "787.bc7d429a.chunk.js.map": "/my-react-app/build/static/js/787.bc7d429a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3c7db85d.css",
-    "static/js/main.3cf1bebf.js"
+    "static/js/main.407b8fa4.js"
   ]
 }
